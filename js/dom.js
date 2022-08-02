@@ -1,29 +1,33 @@
-(function () {
-  let surah = document.getElementById("surah");
-  let ayah = document.getElementById("ayah");
+// (function () {
+let surah = document.getElementById("surah");
+let ayah = document.getElementById("ayah");
 
-  fetch("https://api.alquran.cloud/v1/surah", handleSurahs);
-  fetch("https://api.alquran.cloud/v1/surah/2/edition", handleAyas);
-})();
+fetch("https://api.alquran.cloud/v1/surah", handleSurahs);
+fetch("https://api.alquran.cloud/v1/surah/1/edition", handleAyas);
+// })();
 
 function handleSurahs(response) {
-  response.data.forEach((surah) => {
+  response.data.forEach((ele) => {
     let option = document.createElement("option");
-    option.value = surah.number;
-    option.textContent = `${surah.number} ${surah.englishName}`;
+    option.value = ele.number;
+    option.textContent = `${ele.number} ${ele.englishName}`;
     surah.appendChild(option);
 
-    option.onselect = (event) => {};
+    option.onselect = (event) => {
+      fetch(`https://api.alquran.cloud/v1/surah/${event.target.value}/edition`, handleAyas);
+    };
   });
 }
 
 function handleAyas(response) {
-  response.data["ayahs"].forEach((ayah) => {
+  let options = [];
+  response.data["ayahs"].forEach((ele) => {
     let option = document.createElement("option");
-    option.value = ayah.number;
-    option.textContent = ayah.number;
-    ayah.appendChild(option);
+    option.value = ele.number;
+    option.textContent = ele.number;
+    options.push(option);
   });
+  ayah.replaceChildren(options);
 }
 
 function renderAyas(surah) {
