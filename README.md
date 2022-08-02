@@ -18,7 +18,7 @@ The sound file of the surah and can control the playback or stop it as he wishes
 
 ## 📍 Live Link
 
-✨ Check out our website by [**CLICKING HERE**]().
+✨ Check out our website by [**CLICKING HERE**](https://ca-g12.github.io/Quran-Application/).
 
 ## 📍 Team Members
 
