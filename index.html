@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,21 +9,23 @@
     <title>Quran Application</title>
   </head>
   <body>
-    <div id="header">
-      <select name="surah" id="surah" class="dropdown">
-        <option disabled selected>السورة</option>
-      </select>
-      <select name="ayah" id="ayah" class="dropdown">
-        <option disabled selected>الاية</option>
-      </select>
-      <select name="reciter" id="reciter" class="dropdown">
-        <option disabled selected>القارئ</option>
-      </select>
-    </div>
-    <div id="showSurah"></div>
-    <img class="loading" src="./images/loading.webp" />
-    <div class="container">
-      <audio id="player" class="soundPlayer" src="" controls></audio>
+    <div class="parent">
+      <div id="header">
+        <select name="surah" id="surah" class="dropdown">
+          <option disabled selected>السورة</option>
+        </select>
+        <select name="ayah" id="ayah" class="dropdown">
+          <option disabled selected>الاية</option>
+        </select>
+        <select name="reciter" id="reciter" class="dropdown">
+          <option disabled selected>القارئ</option>
+        </select>
+      </div>
+      <div id="showSurah"></div>
+      <img class="loading" src="./images/loading.webp" />
+      <div class="container">
+        <audio id="player" class="soundPlayer" src="" controls></audio>
+      </div>
     </div>
     <script src="./js/fetch.js"></script>
     <script src="./js/logic.js"></script>
