@@ -67,7 +67,7 @@ fetch("https://qurani-api.herokuapp.com/api/reciters/", (res) => {
       fileUrl = getSoundUrl(res, event.target.options[event.target.selectedIndex].value, surahOption.value);
       soundPlayer.src = fileUrl;
       document.querySelector(".playr-filename").innerHTML = `<span>${
-        selectSurahElem.options[event.target.selectedIndex].textContent
+        selectSurahElem.options[selectSurahElem.selectedIndex].textContent
       } - بصوت القارئ الشيخ ${selectReciters.options[selectReciters.selectedIndex].textContent}</span>`;
       window.player.play();
     };
@@ -75,12 +75,12 @@ fetch("https://qurani-api.herokuapp.com/api/reciters/", (res) => {
       fileUrl = getSoundUrl(
         res,
         selectReciters.options[selectReciters.selectedIndex].value,
-        event.target.options[event.target.selectedIndex].value
+        selectSurahElem.options[selectSurahElem.selectedIndex].value
       );
       soundPlayer.src = fileUrl;
       soundPlayer;
       document.querySelector(".playr-filename").innerHTML = `<span>${
-        selectSurahElem.options[event.target.selectedIndex].textContent
+        selectSurahElem.options[selectSurahElem.selectedIndex].textContent
       } - بصوت القارئ الشيخ ${selectReciters.options[selectReciters.selectedIndex].textContent}</span>`;
       window.player.play();
     });
