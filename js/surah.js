@@ -7,10 +7,8 @@ function renderAyas(res) {
   for (let i = 0; i < pars.length; i++) {
     const paragraph = document.createElement("p");
     const line = document.createElement("hr");
-
-    for (var x in pars) {
-      paragraph.textContent = pars[i]["text"];
-    }
+    paragraph.textContent = pars[i]["text"];
+    paragraph.id = pars[i]["number"];
     surahDiv.appendChild(paragraph);
     surahDiv.appendChild(line);
   }

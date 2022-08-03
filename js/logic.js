@@ -1,4 +1,5 @@
 function getObjectFromArray(arrayOfObj, key, value) {
+  console.log(arrayOfObj);
   return arrayOfObj.find((obj) => obj[key] == value);
 }
 

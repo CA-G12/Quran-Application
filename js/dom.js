@@ -8,33 +8,33 @@ fetch(url, (res) => {
   for (let i = 0; i < res.data.length; i++) {
     let option = document.createElement("option");
     option.setAttribute("value", `${res.data[i].number}`);
-    option.textContent = res.data[i].englishName;
+    option.textContent = res.data[i].name;
     selectSurahElem.appendChild(option);
 
     selectSurahElem.onchange = (event) => {
+      let surahId = selectSurahElem.options[selectSurahElem.selectedIndex].value;
+      let reciterId = selectReciters.options[event.target.selectedIndex].value;
+
       selectAyas.setAttribute("disabled", "disabled");
       event.target.setAttribute("disabled", "disabled");
-      fetch(
-        `https://api.alquran.cloud/v1/surah/${selectSurahElem.options[selectSurahElem.selectedIndex].value}/edition`,
-        (res) => {
-          if (res.data["ayahs"].length) {
-            let ayasList = res["data"]["ayahs"];
+      fetch(`https://api.alquran.cloud/v1/surah/${surahId}/edition`, (res) => {
+        if (res.data["ayahs"].length) {
+          let ayasList = res["data"]["ayahs"];
 
-            while (selectAyas.firstChild) {
-              selectAyas.removeChild(selectAyas.lastChild);
-            }
-            for (let i = 1; i < ayasList.length; i++) {
-              let option = document.createElement("option");
-              option.setAttribute("value", ayasList[i]["number"]);
-              option.textContent = i;
-              selectAyas.appendChild(option);
-            }
+          while (selectAyas.firstChild) {
+            selectAyas.removeChild(selectAyas.lastChild);
           }
-          selectAyas.removeAttribute("disabled");
-          event.target.removeAttribute("disabled");
-          renderAyas(res);
+          for (let i = 1; i < ayasList.length; i++) {
+            let option = document.createElement("option");
+            option.setAttribute("value", ayasList[i]["number"]);
+            option.textContent = i;
+            selectAyas.appendChild(option);
+          }
         }
-      );
+        selectAyas.removeAttribute("disabled");
+        event.target.removeAttribute("disabled");
+        renderAyas(res);
+      });
     };
   }
 });
@@ -59,20 +59,33 @@ fetch(recitersUrl, (res) => {
         )
       );
     };
-  }
-
-  function getSoundUrl(res, reciterId, surahId) {
-    console.log(res, reciterId, surahId);
-    let reciterObj = getObjectFromArray(res, "id", reciterId);
-    console.log(reciterObj);
-    if (reciterObj) {
-      const reciterSuras = reciterObj["suras"].split(",");
-      console.log(reciterSuras);
-      if (reciterSuras.includes(surahId)) {
-        let reciterUrl = reciterObj["Server"];
-        return `${reciterUrl}/${toThreeDigit(surahId)}.mp3`;
-      }
-    }
+    selectSurahElem.addEventListener("change", (event) => {
+      console.log(
+        getSoundUrl(
+          res,
+          selectReciters.options[selectReciters.selectedIndex].value,
+          event.target.options[event.target.selectedIndex].value
+        )
+      );
+    });
   }
 });
+function getSoundUrl(res, reciterId, surahId) {
+  console.log(res, reciterId, surahId);
+  let reciterObj = getObjectFromArray(res, "id", reciterId);
+  console.log(reciterObj);
+  if (reciterObj) {
+    const reciterSuras = reciterObj["suras"].split(",");
+    console.log(reciterSuras);
+    if (reciterSuras.includes(surahId)) {
+      let reciterUrl = reciterObj["Server"];
+      return `${reciterUrl}/${toThreeDigit(surahId)}.mp3`;
+    }
+  }
+}
 
+selectAyas.onchange = (event) => {
+  let ayahId = event.target.options[event.target.selectedIndex].value;
+  let paragraph = document.getElementById(ayahId);
+  window.scrollTo(0, paragraph.offsetTop);
+};
