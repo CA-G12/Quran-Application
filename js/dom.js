@@ -34,9 +34,9 @@ fetch(url, (res) => {
     };
   }
 });
-option.setAttribute("id", `${i}`)
-option.textContent = res.data[i].englishName;
-selectSurah.appendChild(option);
-console.log(res.data[i]);
+// option.setAttribute("id", `${i}`)
+// option.textContent = res.data[i].englishName;
+// selectSurah.appendChild(option);
+// console.log(res.data[i]);
 
 
