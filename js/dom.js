@@ -80,3 +80,4 @@ fetch(recitersUrl, (res) => {
 // option.textContent = res.data[i].englishName;
 // selectSurahElem.appendChild(option);
 // console.log(res.data[i]);
+
