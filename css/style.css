@@ -37,13 +37,15 @@ select {
 option {
   width: 250px;
 }
+#showSurah {
+  flex: 1;
+}
 #showSurah p {
   font-size: 25px;
   padding: 10px;
   direction: rtl;
 }
-<<<<<<< HEAD
-=======
+
 body {
   font-family: 39px;
   font-weight: 600;
@@ -71,6 +73,7 @@ body {
   background-color: #38354a;
   padding: 20px;
   color: #d2d9e5;
+  direction: ltr;
 }
 .playr-ui {
   display: flex;
@@ -207,6 +210,17 @@ body {
   padding-right: 100%;
   transform: translate3d(0px, 0px, 0px);
 }
+
+.loading {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes scroll {
   0% {
     transform: translate3d(0px, 0px, 0px);
@@ -228,4 +242,3 @@ body {
     width: 10px;
   }
 }
->>>>>>> b3f879353d752674c91ca8684f6e05041dc43bc0
