@@ -86,7 +86,7 @@ body {
   border: medium none;
   padding: 0;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 35px;
   line-height: 1;
 }
 .playr-controls button::after {
@@ -102,13 +102,13 @@ body {
   content: "\f3e4";
 }
 
-.playr-fastforward::after {
+/* .playr-fastforward::after {
   content: "\f211";
 }
 
 .playr-rewind::after {
   content: "\f45f";
-}
+} */
 
 .playr-controls button:hover {
   color: #fff;
@@ -142,10 +142,10 @@ body {
 }
 .playr-duration,
 .playr-filename {
-  font-size: 12px;
+  font-size: 16px;
   position: absolute;
   top: 0;
-  width: 50%;
+  width: 100%;
   font-weight: 600;
 }
 .playr-filename {
