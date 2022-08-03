@@ -1,0 +1,26 @@
+{
+  "name": "quran-application",
+  "version": "1.0.0",
+  "description": "✨ As a user, I want to choose a surah from the Qur’an to be presented.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CA-G12/Quran-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CA-G12/Quran-Application/issues"
+  },
+  "homepage": "https://github.com/CA-G12/Quran-Application#readme",
+  "dependencies": {
+    "jest": "^28.1.3"
+  }
+}
