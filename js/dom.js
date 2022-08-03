@@ -1,8 +1,10 @@
-const selectSurahElemElem = document.querySelector("#surah");
+const selectSurahElem = document.querySelector("#surah");
+const selectReciters = document.getElementById("reciter");
+const selectAyas = document.getElementById("ayah");
+const surahDiv = document.getElementById("showSurah");
 
 const url = "https://api.alquran.cloud/v1/surah";
 fetch(url, (res) => {
-  const selectSurahElem = document.querySelector("#surah");
   for (let i = 0; i < res.data.length; i++) {
     let option = document.createElement("option");
     option.setAttribute("value", `${res.data[i].number}`);
@@ -10,7 +12,6 @@ fetch(url, (res) => {
     selectSurahElem.appendChild(option);
 
     selectSurahElem.onchange = (event) => {
-      let selectAyas = document.getElementById("ayah");
       selectAyas.setAttribute("disabled", "disabled");
       event.target.setAttribute("disabled", "disabled");
       fetch(
@@ -31,6 +32,7 @@ fetch(url, (res) => {
           }
           selectAyas.removeAttribute("disabled");
           event.target.removeAttribute("disabled");
+          renderAyas(res);
         }
       );
     };
@@ -40,9 +42,6 @@ fetch(url, (res) => {
 // Get Recipters
 const recitersUrl = "https://qurani-api.herokuapp.com/api/reciters/";
 fetch(recitersUrl, (res) => {
-  const selectReciters = document.getElementById("reciter");
-  const selectSurahElem = document.querySelector("#surah");
-
   for (let i = 0; i < res.length; i++) {
     console.log(res[i].id + " - " + res[i].name + " - " + res[i].rewaya);
     console.log(res[i].name + " - " + res[i].rewaya);
@@ -76,8 +75,4 @@ fetch(recitersUrl, (res) => {
     }
   }
 });
-// option.setAttribute("id", `${i}`)
-// option.textContent = res.data[i].englishName;
-// selectSurahElem.appendChild(option);
-// console.log(res.data[i]);
 
