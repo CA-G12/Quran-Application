@@ -34,3 +34,24 @@ fetch(url, (res) => {
     };
   }
 });
+
+// Get Recipters
+const recitersUrl = "https://qurani-api.herokuapp.com/api/reciters/";
+fetch(recitersUrl, (res) => {
+  for (let i = 0; i < res.length; i++) {
+    console.log(res[i].id + " - " + res[i].name + " - " + res[i].rewaya);
+    console.log(res[i].name + " - " + res[i].rewaya);
+    console.log(getSoundUrl(res, 1, 1));
+  }
+
+  function getSoundUrl(res, reciterId, surahId) {
+    let reciterObj = getObjectFromArray(res, "id", reciterId);
+    if (reciterObj) {
+      const reciterSuras = reciterObj["suras"].split(",");
+      if (reciterSuras.include(surahId)) {
+        let reciterUrl = reciterObj["Server"];
+        return `${reciterUrl}/${toThreeDigit(surahId)}.mp3`;
+      }
+    }
+  }
+});
