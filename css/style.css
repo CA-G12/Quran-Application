@@ -23,3 +23,9 @@ body {
   margin: 10px;
   border-radius: 10px;
 }
+#showSurah p {
+  display: flex;
+  justify-content: end;
+  font-size: 25px;
+  padding: 10px;
+}
