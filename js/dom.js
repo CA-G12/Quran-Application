@@ -2,6 +2,9 @@ const selectSurahElem = document.querySelector("#surah");
 const selectReciters = document.getElementById("reciter");
 const selectAyas = document.getElementById("ayah");
 const surahDiv = document.getElementById("showSurah");
+const soundPlayer = document.querySelector(".soundPlayer");
+let urlName = ""
+
 
 const url = "https://api.alquran.cloud/v1/surah";
 fetch(url, (res) => {
@@ -51,22 +54,31 @@ fetch(recitersUrl, (res) => {
     option.textContent = `${res[i].name} - ${res[i].rewaya}`;
     selectReciters.appendChild(option);
     selectReciters.onchange = (event) => {
-      console.log(
-        getSoundUrl(
-          res,
-          event.target.options[event.target.selectedIndex].value,
-          selectSurahElem.options[selectSurahElem.selectedIndex].value
-        )
+      let surahOption = selectSurahElem.options[selectSurahElem.selectedIndex];
+
+      urlName = getSoundUrl(
+        res,
+        event.target.options[event.target.selectedIndex].value,
+        surahOption.value
+
       );
+      soundPlayer.src = urlName;
+      document.querySelector('.playr-filename').innerHTML = `<span>${selectSurahElem.options[event.target.selectedIndex].textContent} - بصوت القارئ الشيخ ${selectReciters.options[selectReciters.selectedIndex].textContent}</span>`;
+
     };
     selectSurahElem.addEventListener("change", (event) => {
       console.log(
-        getSoundUrl(
-          res,
-          selectReciters.options[selectReciters.selectedIndex].value,
-          event.target.options[event.target.selectedIndex].value
-        )
+
       );
+      urlName = getSoundUrl(
+        res,
+        selectReciters.options[selectReciters.selectedIndex].value,
+        event.target.options[event.target.selectedIndex].value
+
+      );
+      soundPlayer.src = urlName;
+      document.querySelector('.playr-filename').innerHTML = `<span>${selectSurahElem.options[event.target.selectedIndex].textContent} - بصوت القارئ الشيخ ${selectReciters.options[selectReciters.selectedIndex].textContent}</span>`;
+
     });
   }
 });
