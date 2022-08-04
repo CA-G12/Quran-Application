@@ -12,9 +12,7 @@
 
 ## 📍 User journy
 
-✨ When the user opens the application, Surat Al -Fatihah will be displayed and then he can choose the surah and when choosing the surah, the verses will be updated so that the user can go to the verse
-He wants it, When the surah is displayed, the user can play a sound for the reader who wants to listen to and when choosing the reciter is running
-The sound file of the surah and can control the playback or stop it as he wishes
+✨ When the user opens the application,he can choose the surah and the user can go to the verse he wants, he can choose to listen to his recipters with different narrations. 
 
 ## 📍 Live Link
 
