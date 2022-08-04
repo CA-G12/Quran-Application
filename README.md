@@ -6,9 +6,9 @@
 
 ✨ As a user, I want to listen to the surah he chose.
 
-✨ As a user, I want to offer any specific surah that he chose.
+✨ As a user, I want to offer any specific surah that i chose.
 
-✨ As a user, I want to display the fence in both Arabic and English.
+✨ As a user, I want to display the fence Arabic.
 
 ## 📍 User journy
 
