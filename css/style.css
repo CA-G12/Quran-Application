@@ -258,3 +258,16 @@ body {
   text-align: center;
   line-height: 50px;
 }
+
+@media screen and (max-width: 1400px) {
+  .move-up {
+    bottom: 100px;
+    right: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .move-up {
+    bottom: 100px;
+    right: 20px;
+  }
+}

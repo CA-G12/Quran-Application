@@ -78,7 +78,6 @@ fetch("https://qurani-api.herokuapp.com/api/reciters/", (res) => {
         selectSurahElem.options[selectSurahElem.selectedIndex].value
       );
       soundPlayer.src = fileUrl;
-      soundPlayer;
       document.querySelector(".playr-filename").innerHTML = `<span>${
         selectSurahElem.options[selectSurahElem.selectedIndex].textContent
       } - بصوت القارئ الشيخ ${selectReciters.options[selectReciters.selectedIndex].textContent}</span>`;
