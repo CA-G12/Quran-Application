@@ -8,7 +8,7 @@
 
 ✨ As a user, I want to offer any specific surah that i chose.
 
-✨ As a user, I want to display the fence Arabic.
+✨ As a user, I want to display the Suruhs in Arabic.
 
 ## 📍 User journy
 
@@ -19,6 +19,11 @@ The sound file of the surah and can control the playback or stop it as he wishes
 ## 📍 Live Link
 
 ✨ Check out our website by [**CLICKING HERE**](https://ca-g12.github.io/Quran-Application/).
+
+## 📍 APIs 
+
+✨ [**Suruhs**](https://api.alquran.cloud/v1/surah).
+✨ [**Reciters**](https://qurani-api.herokuapp.com/api/reciters/).
 
 ## 📍 Team Members
 
